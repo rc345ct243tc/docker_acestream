@@ -1,0 +1,17 @@
+diff --git a/request.py b/request.py
+index ef253dd..5300dbd 100644
+--- a/request.py
++++ b/request.py
+@@ -1316,6 +1316,12 @@ class AbstractHTTPHandler(BaseHandler):
+         http_class must implement the HTTPConnection API from http.client.
+         """
+         host = req.host
++        import re
++        is_ip = re.findall('(\d+).(\d+).(\d+).(\d+)',str(host))
++        if not is_ip and host:
++            import dns.resolver
++            answer = dns.resolver.resolve_at("8.8.8.8", host, "A")
++            host = answer[0].to_text()
+         if not host:
+             raise URLError('no host given')
+ 

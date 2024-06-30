@@ -1,0 +1,16 @@
+diff --git a/socket.py b/socket.py
+index f83f36d..098eb3e 100644
+--- a/socket.py
++++ b/socket.py
+@@ -739,6 +739,11 @@ class SocketIO(io.RawIOBase):
+         self._sock._decref_socketios()
+         self._sock = None
+ 
++def gethostbyname(name=''):
++    import dns.resolver
++    answer = dns.resolver.resolve_at("8.8.8.8", host, "A")
++    host = answer[0].to_text()
++    return host
+ 
+ def getfqdn(name=''):
+     """Get fully qualified domain name from name.

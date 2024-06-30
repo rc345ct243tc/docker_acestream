@@ -1,0 +1,39 @@
+diff --git a/app_bridge.py b/app_bridge.py
+index 9cc2f99..12e7bd2 100644
+--- a/app_bridge.py
++++ b/app_bridge.py
+@@ -74,6 +74,34 @@ class Android(object):
+       return "unknown"
+     elif method == "onSettingsUpdated":
+       return None
++    elif method == "getAppId":
++      return 1
++    elif method == "getAppVersionCode":
++      return 1
++    elif method == "onEvent":
++      return 1
++    elif method == "getMaxMemory":
++      return 1024 * 1024 * 1024
++    elif method == "getArch":
++      return "x86_64"
++    elif method == "getLocale":
++      return "en-US"
++    elif method == "getDeviceName":
++      return "generic"
++    elif method == "getDeviceModel":
++      return "generic"
++    elif method == "isAndroidTv":
++      return "false"
++    elif method == "getDeviceProductName":
++      return "generic"
++    elif method == "getMemoryClass":
++      return 1024 * 1024 * 1024
++    elif method == "hasBrowser":
++      return "false"
++    elif method == "hasWebView":
++      return "false"
++    elif method == "getDeviceABI":
++      return 1
+     else:
+       raise Exception("Unknown method: %s" % (method,))
+ 
